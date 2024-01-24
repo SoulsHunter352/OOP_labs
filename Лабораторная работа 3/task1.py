@@ -55,11 +55,12 @@ class PaperBook(Book):
         self._pages = new_pages
 
     def __str__(self) -> str:
-        return f"Книга {self.name}. Автор {self.author}. Кол-во страниц {self._pages}"
+        return super().__str__() + f" Кол-во страниц {self._pages}"
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(name={self._name!r}, " \
-               f"author={self._author!r}, pages={self._pages!r})"
+        return super().__repr__()[:-1] + f", pages={self._pages!r})"
+        # return f"{self.__class__.__name__}(name={self._name!r}, " \
+        #       f"author={self._author!r}, pages={self._pages!r})"
 
 
 class AudioBook(Book):
@@ -87,11 +88,12 @@ class AudioBook(Book):
         self._duration = new_duration
 
     def __str__(self) -> str:
-        return f"Книга {self.name}. Автор {self.author}. Продолжительность {self.duration}"
+        return super().__str__() + f" Продолжительность {self.duration}"
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(name={self._name!r}, " \
-               f"author={self._author!r}, duration={self._duration!r})"
+        return super().__repr__()[:-1] + f", duration={self._duration!r})"
+        # return f"{self.__class__.__name__}(name={self._name!r}, " \
+        #       f"author={self._author!r}, duration={self._duration!r}) {super().__repr__()}"
 
 
 book1 = Book("Война и мир", "Толстой")
